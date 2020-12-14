@@ -12,6 +12,7 @@ app.use(express.static('data'));
 
 // Websocket-Endpoint
 app.ws('/ws', function(ws, req) {
+    // Nach Client-Connection wird hier ein initiales UI_INITIAL_GUI gesendet, das festlegt, welche UI-Elemente der Client anzeigen soll
     var data = {
         type: 200, // UI_INITIAL_GUI
         sliderContinuous: false,
@@ -25,7 +26,7 @@ app.ws('/ws', function(ws, req) {
         if (i === 10) continue;
 
         data.controls.push({
-            id: 'id_' + i,
+            id: i,
             type: i,
             label: 'Label for Ele ' + i,
             value: 0,
@@ -36,6 +37,11 @@ app.ws('/ws', function(ws, req) {
     }
 
     ws.send(JSON.stringify(data));
+
+    // Alle Buttons des Clients sind an Websocket-Events gebunden, siehe ESPUI.cpp:491ff.
+    ws.on('message', function(message) {
+        console.log({message});
+    });
 });
 
 app.listen(port, () => {
