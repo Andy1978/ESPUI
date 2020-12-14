@@ -1,0 +1,28 @@
+{
+  "name": "espui",
+  "version": "1.0.0",
+  "description": "![ESPUI](https://github.com/s00500/ESPUI/blob/master/docs/ui_complete.png)",
+  "main": "ESPUI_blocks.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andy1978/ESPUI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andy1978/ESPUI/issues"
+  },
+  "homepage": "https://github.com/Andy1978/ESPUI#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-ws": "^4.0.0"
+  }
+}
